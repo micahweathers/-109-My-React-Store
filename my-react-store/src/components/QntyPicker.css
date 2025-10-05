@@ -1,0 +1,20 @@
+.btn-Qnty{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 5px;
+}
+
+.quantity-display {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.btn-Qnty button {
+    color: antiquewhite;
+    background-color: darkcyan;
+}
