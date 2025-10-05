@@ -1,28 +1,43 @@
 import './NavBar.css';
+import { useState } from 'react';
 
 function NavBar() {
-  return (
-    <nav className="navbar">
-        <div className="navbar-container">
-            <div className="navbar-brand">
-                <h1>My Online Store</h1>
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <nav className="navbar">
+            <div className="navbar-container">
+                <div className="navbar-brand">
+                    <h1>My Online Store</h1>
+                </div>
+
+                {/* Menu Toggle Button */}
+                <button className="menu-toggle" onClick={toggleMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </button>
+
+                <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a href="#home" className="nav-link" onClick={toggleMenu}>Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#catalog" className="nav-link" onClick={toggleMenu}>Catalog</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#about" className="nav-link" onClick={toggleMenu}>About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div className="navbar-menu">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a href="#home" className="nav-link">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/src/pages/catalog.html" className="nav-link">Catalog</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#about" className="nav-link">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-  )
+        </nav>
+    )
 }
 
 export default NavBar
