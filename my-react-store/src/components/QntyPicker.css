@@ -28,13 +28,13 @@ button {
 
 .btn-Qnty button {
     color: white;
-    background-color: #3498db;
+    background-color: #c0392b;
     padding: 8px 16px;
     font-weight: 600;
 }
 
 .btn-Qnty button:hover {
-    background-color: #2980b9;
+    background-color: #a93226;
 }
 
 /* Mobile - larger touch targets */

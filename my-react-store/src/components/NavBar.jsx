@@ -10,9 +10,10 @@ function NavBar() {
 
     return (
         <nav className="navbar">
+            <img src="/images/navbar-punk.png" alt="Punk Store" className="navbar-background" />
             <div className="navbar-container">
                 <div className="navbar-brand">
-                    <h1>My Online Store</h1>
+                    {/* Logo area - can add text or small logo here if needed */}
                 </div>
 
                 {/* Menu Toggle Button */}
@@ -40,4 +41,4 @@ function NavBar() {
     )
 }
 
-export default NavBar
+export default NavBar;
