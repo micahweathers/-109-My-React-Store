@@ -1,7 +1,15 @@
 .footer{
-    background-color: #333;
+    background-color: #571a14;
     color: white;
     text-align: center;
     padding: 1rem;
-    margin-top: auto;
+    margin-top: 20px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .footer {
+        padding: 15px 10px;
+        text-align: center;
+    }
 }
