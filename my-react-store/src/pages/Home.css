@@ -1,0 +1,142 @@
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #c0392b 0%, #571a14 100%);
+    color: white;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.cta-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: white;
+    color: #c0392b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background-color: #f8f9fa;
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* About Preview Section */
+.about-preview {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+}
+
+.about-preview h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-preview p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 50px 20px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .about-preview h2 {
+        font-size: 1.5rem;
+    }
+}

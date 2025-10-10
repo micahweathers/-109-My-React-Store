@@ -29,7 +29,7 @@ const catalog = [
     },
     {
         "title": "Cupcake Cutie Micah",
-        "category": "Collectable",
+        "category": "Collectible",
         "price": 35.99,
         "image":"Micah-Collectable.png",
         "_id":"5"
@@ -37,7 +37,7 @@ const catalog = [
 ]
 
 class DataService{
-    getProducts(){
+    async getProducts(){
         return catalog;
     }
 }

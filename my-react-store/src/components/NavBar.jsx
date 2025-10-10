@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { useState } from 'react';
 
@@ -8,12 +9,16 @@ function NavBar() {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
         <nav className="navbar">
             <img src="/images/navbar-punk.png" alt="Punk Store" className="navbar-background" />
             <div className="navbar-container">
                 <div className="navbar-brand">
-                    {/* Logo area - can add text or small logo here if needed */}
+                    {/* Empty - maintains layout spacing */}
                 </div>
 
                 {/* Menu Toggle Button */}
@@ -26,13 +31,13 @@ function NavBar() {
                 <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a href="#home" className="nav-link" onClick={toggleMenu}>Home</a>
+                            <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a href="#catalog" className="nav-link" onClick={toggleMenu}>Catalog</a>
+                            <Link to="/catalog" className="nav-link" onClick={closeMenu}>Catalog</Link>
                         </li>
                         <li className="nav-item">
-                            <a href="#about" className="nav-link" onClick={toggleMenu}>About</a>
+                            <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
                         </li>
                     </ul>
                 </div>
