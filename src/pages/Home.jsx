@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="home">
       <div className="hero-section">
-        <h1>Welcome to Our Punk Store! 🎸</h1>
+        <h1><img src="/images/rock-and-roll.png" className="featured-icon-L" />  Welcome to Our Punk Store! <img src="/images/rock-and-roll.png" className="featured-icon-R" /></h1>
         <p className="tagline">Unique figurines with attitude</p>
         <Link to="/catalog">
           <button className="cta-button">Shop Now</button>
@@ -14,15 +14,15 @@ function Home() {
 
       <div className="features">
         <div className="feature-card">
-          <h3>🍊 Punk Fruits</h3>
+          <h3><img src="/images/fruit.gif" className="feature-icons" /> Punk Fruits</h3>
           <p>Rebellious citrus with style</p>
         </div>
         <div className="feature-card">
-          <h3>🧁 Collectibles</h3>
+          <h3><img src="/images/cupcake.gif" className="feature-icons" />Collectibles</h3>
           <p>Unique cupcake characters</p>
         </div>
         <div className="feature-card">
-          <h3>✨ Limited Edition</h3>
+          <h3><img src="/images/sparkle.gif" className="feature-icons" /> Limited Edition</h3>
           <p>Handpicked designs</p>
         </div>
       </div>

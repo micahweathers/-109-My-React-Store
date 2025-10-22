@@ -116,7 +116,23 @@
         gap: 20px;
     }
 }
+/* Icons */
 
+.feature-icons{
+    height: 35px;
+    width: auto;
+}
+
+.featured-icon-R{
+    height: 95px;
+    width: auto;
+}
+
+.featured-icon-L{
+    height: 95px;
+    width: auto;
+    transform: scaleX(-1);
+}
 /* Mobile */
 @media (max-width: 480px) {
     .hero-section {

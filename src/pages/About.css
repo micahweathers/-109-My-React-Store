@@ -124,23 +124,18 @@
     color: #2c3e50;
 }
 
-/* Contact Section */
-.contact-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+/* Icons */
+
+.icons{
+    height: 70px;
+    width: auto;
+    border: solid 2px black;
+    border-radius: 75%;
 }
 
-.contact-info {
-    margin-top: 25px;
-    padding: 25px;
-    background: white;
-    border-radius: 8px;
-    border-left: 4px solid #c0392b;
-}
-
-.contact-info p {
-    margin: 10px 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
+.values-icon{
+    height: 25px;
+    width: auto;
 }
 
 /* Tablet */

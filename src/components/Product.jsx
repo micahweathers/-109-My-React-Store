@@ -9,8 +9,8 @@ function Product(props){
     const total = (props.data.price * quantity).toFixed(2);
     
     // Mock rating data
-    const rating = props.data.rating || 4.5;
-    const reviewCount = props.data.reviewCount || Math.floor(Math.random() * 100) + 10;
+    const rating = props.data.rating;
+    const reviewCount = props.data.reviewCount;
     
     const handleAddToCart = () => {
         setIsModalOpen(true);
@@ -47,7 +47,7 @@ function Product(props){
                 <QntyPicker quantity={quantity} setQuantity={setQuantity} />
                 
                 <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                    🛒 Add to Cart
+                    Add to Cart
                 </button>
             </div>
 

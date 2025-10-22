@@ -27,17 +27,17 @@ function About() {
           <h2>Our Mission</h2>
           <div className="mission-cards">
             <div className="mission-card">
-              <div className="icon">🎨</div>
+              <div className="icon"><img src="/images/painting.gif" className="icons"/></div>
               <h3>Unique Designs</h3>
               <p>Every figurine is one-of-a-kind with its own attitude and style</p>
             </div>
             <div className="mission-card">
-              <div className="icon">💪</div>
+              <div className="icon"><img src="/images/quality-control.gif" className="icons"/></div>
               <h3>Quality First</h3>
               <p>We ensure each piece meets our high standards of craftsmanship</p>
             </div>
             <div className="mission-card">
-              <div className="icon">❤️</div>
+              <div className="icon"><img src="/images/kpop.gif" className="icons"/></div>
               <h3>Customer Love</h3>
               <p>Your satisfaction and joy are what drive us forward</p>
             </div>
@@ -47,22 +47,13 @@ function About() {
         <section className="values-section">
           <h2>What We Stand For</h2>
           <ul className="values-list">
-            <li>✨ <strong>Creativity:</strong> We celebrate unique, bold designs that stand out</li>
-            <li>🌟 <strong>Authenticity:</strong> Real personality in every piece</li>
-            <li>🎯 <strong>Quality:</strong> Only the best makes it to our collection</li>
-            <li>🤝 <strong>Community:</strong> Building a family of collectors and enthusiasts</li>
+            <li><img src="/images/sparkling.png" className="values-icon"/> <strong>Creativity:</strong> We celebrate unique, bold designs that stand out</li>
+            <li><img src="/images/quality-control.png" className="values-icon"/> <strong>Authenticity:</strong> Real personality in every piece</li>
+            <li><img src="/images/bullseye.png" className="values-icon"/> <strong>Quality:</strong> Only the best makes it to our collection</li>
+            <li><img src="/images/community.png" className="values-icon"/> <strong>Community:</strong> Building a family of collectors and enthusiasts</li>
           </ul>
         </section>
 
-        <section className="contact-section">
-          <h2>Get in Touch</h2>
-          <p>Have questions or want to learn more? We'd love to hear from you!</p>
-          <div className="contact-info">
-            <p>📧 Email: hello@punkstore.com</p>
-            <p>📱 Phone: (555) 123-4567</p>
-            <p>📍 Location: Chicago, IL</p>
-          </div>
-        </section>
       </div>
     </div>
   );
