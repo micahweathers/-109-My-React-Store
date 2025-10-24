@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import About from './pages/About';
+import Admin from './pages/Admin';
 import Catalog from './pages/Catalog';
 import Contact from './pages/Contact';
 import Error from './pages/Error';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/404" element={<Error />} />
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
