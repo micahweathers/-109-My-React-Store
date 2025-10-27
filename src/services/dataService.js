@@ -6,7 +6,7 @@ const catalog = [
         "image":"Punk-Orange-Product.png",
         "rating": 4.5,
         "reviewCount": 87,
-        "_id":"1"
+        "id":"1"
     },
     {
         "title": "Punk Apple Figurine",
@@ -15,7 +15,7 @@ const catalog = [
         "image":"Punk-Apple-Product.png",
         "rating": 4.8,
         "reviewCount": 124,
-        "_id":"2"
+        "id":"2"
     },
     {
         "title": "Grunge Limes Figurine",
@@ -24,7 +24,7 @@ const catalog = [
         "image":"Grunge-Lime-Product.png",
         "rating": 4.2,
         "reviewCount": 63,
-        "_id":"3"
+        "id":"3"
     },
     {
         "title": "Grunge Lemons Figurine",
@@ -33,7 +33,7 @@ const catalog = [
         "image":"Grunge-Lemon-Product.png",
         "rating": 4.6,
         "reviewCount": 95,
-        "_id":"4"
+        "id":"4"
     },
     {
         "title": "Cupcake Cutie Micah",
@@ -42,7 +42,7 @@ const catalog = [
         "image":"Micah-Collectable.png",
         "rating": 5.0,
         "reviewCount": 142,
-        "_id":"5"
+        "id":"5"
     }
 ]
 

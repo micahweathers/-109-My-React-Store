@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import GlobalContext from '../state/GlobalContext.js';
 
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
+    const user = useContext(GlobalContext).user;
+    const cart = useContext(GlobalContext).cart;
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -13,12 +16,22 @@ function NavBar() {
         setIsOpen(false);
     };
 
+    // Calculate total cart items
+    const getTotalItems = () => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
+    };
+
     return (
         <nav className="navbar">
             <img src="/images/navbar-punk.png" alt="Punk Store" className="navbar-background" />
             <div className="navbar-container">
                 <div className="navbar-brand">
-                    {/* Empty - maintains layout spacing */}
+                    <div className="user-welcome">
+                        <span className="welcome-text">Welcome, {user.name}!</span>
+                        {getTotalItems() > 0 && (
+                            <span className="cart-badge">{getTotalItems()}</span>
+                        )}
+                    </div>
                 </div>
 
                 {/* Menu Toggle Button */}
@@ -41,9 +54,6 @@ function NavBar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/admin" className="nav-link" onClick={closeMenu}>Admin</Link>
                         </li>
                     </ul>
                 </div>

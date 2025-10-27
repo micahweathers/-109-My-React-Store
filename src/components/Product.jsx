@@ -1,11 +1,13 @@
 import "./Product.css"
 import QntyPicker from "./QntyPicker"
 import CartModal from "./CartModal"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import GlobalContext from "../state/GlobalContext.js"
 
 function Product(props){
     const [quantity, setQuantity] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const addProductToCart = useContext(GlobalContext).addProductToCart;
     const total = (props.data.price * quantity).toFixed(2);
     
     // Mock rating data
@@ -13,6 +15,14 @@ function Product(props){
     const reviewCount = props.data.reviewCount;
     
     const handleAddToCart = () => {
+        // Add to cart using context
+        const cartItem = {
+            ...props.data,
+            quantity: quantity
+        };
+        addProductToCart(cartItem);
+        
+        // Show modal
         setIsModalOpen(true);
     };
 
