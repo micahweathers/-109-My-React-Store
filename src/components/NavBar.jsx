@@ -28,9 +28,14 @@ function NavBar() {
                 <div className="navbar-brand">
                     <div className="user-welcome">
                         <span className="welcome-text">Welcome, {user.name}!</span>
-                        {getTotalItems() > 0 && (
-                            <span className="cart-badge">{getTotalItems()}</span>
-                        )}
+                        <div className="cart-icon-wrapper">
+                            <Link to={'/cart'}>
+                                <img src="/images/shopping-basket.png" className="nav-icon"/>
+                            </Link>
+                            {getTotalItems() > 0 && (
+                                <span className="cart-badge">{getTotalItems()}</span>
+                            )}
+                        </div>
                     </div>
                 </div>
 
@@ -54,6 +59,9 @@ function NavBar() {
                         </li>
                         <li className="nav-item">
                             <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/admin" className="nav-link" onClick={closeMenu}>Admin</Link>
                         </li>
                     </ul>
                 </div>

@@ -146,9 +146,33 @@
 /* Modal Footer */
 .modal-footer {
     display: flex;
+    gap: 15px;
     justify-content: center;
 }
 
+/* Go to Cart Button - Primary */
+.btn-go-cart {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #c0392b 0%, #571a14 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-go-cart:hover {
+    background: linear-gradient(135deg, #a02f24 0%, #3d120e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+}
+
+/* Continue Shopping Button - Secondary */
 .btn-continue {
     padding: 12px 30px;
     background-color: #2c3e50;
@@ -185,5 +209,15 @@
     .modal-body img {
         width: 120px;
         height: 120px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-go-cart,
+    .btn-continue {
+        width: 100%;
     }
 }

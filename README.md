@@ -1,16 +1,82 @@
-# React + Vite
+# Punk Rock Online Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based e-commerce store with a punk rock theme. Add products to your cart, manage quantities, and checkout!
 
-Currently, two official plugins are available:
+## What This Project Has
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Pages
+- [x] **Home** - Landing page
+- [x] **Catalog** - Browse and shop products
+- [x] **About** - Learn about the store
+- [x] **Contact** - Get in touch
+- [x] **Admin** - Add new products (admin panel)
+- [x] **Cart** - Review items and checkout
 
-## React Compiler
+### Features
+- Add products to cart
+- Adjust quantities in cart
+- Remove items from cart
+- Cart persists after page refresh (localStorage)
+- Shopping cart modal when adding items
+- Responsive design (works on mobile, tablet, desktop)
+- Punk rock themed UI
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built With
 
-## Expanding the ESLint configuration
+- **React** - Frontend framework
+- **React Router** - Page navigation
+- **Context API** - State management (cart & user)
+- **localStorage** - Data persistence
+- **CSS** - Custom styling
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run This Project
+
+### 1. Clone the repository
+Download the project to your computer:
+```bash
+git clone https://github.com/micahweathers/-109-My-React-Store
+```
+
+### 2. Go into the project folder
+Navigate to the project:
+```bash
+cd -109-My-React-Store
+```
+
+### 3. Install dependencies
+Download all the packages the project needs:
+```bash
+npm install
+```
+
+### 4. Start the development server
+Run the project locally:
+```bash
+npm run dev
+```
+
+## How to Use
+
+1. **Browse Products** - Go to the Catalog page
+2. **Add to Cart** - Click "Add to Cart" on any product
+3. **View Cart** - Click the cart icon in the navbar
+4. **Adjust Quantities** - Use the quantity selector in cart
+5. **Remove Items** - Click "Remove" to delete items
+6. **Checkout** - Click the checkout button (currently non-functional)
+
+## Data Storage
+
+- Cart items are saved to your browser's localStorage
+- Data persists even after closing the browser
+- Refresh the page and your cart will still be there!
+
+## Notes
+
+- This is a learning project for Course 109
+- Checkout button is styled but not connected to payment processing
+- Product data is stored in component state (not a real database)
+
+## Author
+
+**Micah Weathers**  
+Cohort 61

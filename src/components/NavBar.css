@@ -53,26 +53,40 @@
         0 0 3px rgba(255, 255, 255, 0.8);
 }
 
+/* Cart Icon Wrapper */
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Cart Badge - Overlays Icon */
 .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
     background: linear-gradient(135deg, #c0392b 0%, #571a14 100%);
     color: white;
     border-radius: 50%;
-    padding: 4px 8px;
-    font-size: 0.75rem;
+    padding: 2px;
+    font-size: 0.55rem;
     font-weight: 700;
-    min-width: 20px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.4);
-    animation: pulse 2s infinite;
+    box-shadow: 0 2px 6px rgba(192, 57, 43, 0.5);
+    border: 2px solid white;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+.nav-icon{
+    height: 25px;
+    border: solid black 1px;
+    padding-bottom: 2px;
+    border-radius: 75%;
+    background-color: #ffe0dc;
 }
 
 .navbar-menu {
@@ -195,7 +209,12 @@
     }
     
     .cart-badge {
-        padding: 3px 6px;
-        font-size: 0.7rem;
+        padding: 2px;
+        font-size: 0.5rem;
+        min-width: 14px;
+        height: 14px;
+        line-height: 10px;
+        top: -4px;
+        right: -6px;
     }
 }

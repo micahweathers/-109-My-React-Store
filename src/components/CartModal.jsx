@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './CartModal.css';
 
 function CartModal({ isOpen, onClose, product, quantity, total }) {
@@ -23,6 +24,9 @@ function CartModal({ isOpen, onClose, product, quantity, total }) {
         </div>
         
         <div className="modal-footer">
+          <Link to="/cart" className="btn-go-cart">
+            Go to Cart
+          </Link>
           <button className="btn-continue" onClick={onClose}>
             Continue Shopping
           </button>

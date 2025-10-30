@@ -17,7 +17,7 @@ function Product(props){
     const handleAddToCart = () => {
         // Add to cart using context
         const cartItem = {
-            ...props.data,
+            ...props.data, //Spread Operator '...'
             quantity: quantity
         };
         addProductToCart(cartItem);
