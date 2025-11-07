@@ -1,0 +1,238 @@
+/* Modal Overlay */
+.coupon-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Modal Content */
+.coupon-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.coupon-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.coupon-modal-close:hover {
+    color: #c0392b;
+}
+
+/* Modal Header */
+.coupon-modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.coupon-modal-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #2d8b7e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 auto 15px;
+    animation: scaleIn 0.4s ease;
+}
+
+.coupon-modal-icon.delete {
+    background-color: #e74c3c;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.coupon-modal-header h2 {
+    color: #2c3e50;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Modal Body */
+.coupon-modal-body {
+    margin-bottom: 25px;
+}
+
+.coupon-modal-body p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.coupon-form-group {
+    margin-bottom: 20px;
+}
+
+.coupon-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.coupon-form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.coupon-form-group input:focus {
+    outline: none;
+    border-color: #2d8b7e;
+    box-shadow: 0 0 0 3px rgba(45, 139, 126, 0.1);
+}
+
+/* Modal Footer */
+.coupon-modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Primary Button (Save/Confirm) */
+.coupon-btn-primary {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #2d8b7e 0%, #1f6b61 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coupon-btn-primary:hover {
+    background: linear-gradient(135deg, #257066 0%, #194f47 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 139, 126, 0.4);
+}
+
+.coupon-btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Danger Button (Delete) */
+.coupon-btn-danger {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coupon-btn-danger:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* Secondary Button (Cancel) */
+.coupon-btn-secondary {
+    padding: 12px 30px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coupon-btn-secondary:hover {
+    background-color: #1a252f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .coupon-modal-content {
+        padding: 25px 20px;
+    }
+    
+    .coupon-modal-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .coupon-modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .coupon-btn-primary,
+    .coupon-btn-danger,
+    .coupon-btn-secondary {
+        width: 100%;
+    }
+}

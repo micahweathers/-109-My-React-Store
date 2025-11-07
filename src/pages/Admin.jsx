@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 import './Admin.css'
-import { useState } from 'react'
+import CouponModal from '../components/CouponModal';
 
 function Admin() {
     // Product State
@@ -13,6 +15,126 @@ function Admin() {
     const [couponCode, setCouponCode] = useState("")
     const [couponDiscount, setCouponDiscount] = useState("")
     const [coupons, setCoupons] = useState([])
+    const [filteredCoupons, setFilteredCoupons] = useState([])
+    const [showFiltered, setShowFiltered] = useState(false)
+
+    // Modal State
+    const [modalOpen, setModalOpen] = useState(false)
+    const [modalType, setModalType] = useState('') // 'edit' or 'delete'
+    const [selectedCoupon, setSelectedCoupon] = useState(null)
+
+    useEffect(() => {
+        getCoupons()
+    }, [])
+
+    // GET coupons from API
+    const getCoupons = async () => {
+        try {
+            const response = await axios({
+                url: "http://127.0.0.1:5000/api/coupons",
+                method: "GET"
+            })
+            console.log(response.data.coupons)
+            setCoupons(response.data.coupons)
+            setShowFiltered(false)
+        } catch (error) {
+            console.error("Error fetching coupons:", error)
+        }
+    }
+
+    // GET filtered coupons (discount < 30)
+    const getFilteredCoupons = async () => {
+        try {
+            const response = await axios({
+                url: "http://127.0.0.1:5000/api/coupons/search",
+                method: "GET"
+            })
+            console.log(response.data.data)
+            setFilteredCoupons(response.data.data)
+            setShowFiltered(true)
+        } catch (error) {
+            console.error("Error fetching filtered coupons:", error)
+        }
+    }
+
+    // POST coupons to API
+    const createCoupons = async () => {
+        try {
+            await axios({
+                url: "http://127.0.0.1:5000/api/coupons",
+                method: "POST", 
+                headers: {"Content-Type": "application/json"},
+                data: {
+                    "code": couponCode,
+                    "discount": parseInt(couponDiscount)
+                }
+            })
+            setCouponCode("")
+            setCouponDiscount("")
+            getCoupons()
+        } catch (error) {
+            console.error("Error creating coupon:", error)
+        }
+    }
+
+    // PUT - Update coupon
+    const updateCoupon = async (id) => {
+        const couponList = showFiltered ? filteredCoupons : coupons
+        const coupon = couponList.find(c => c._id === id)
+        setSelectedCoupon(coupon)
+        setModalType('edit')
+        setModalOpen(true)
+    }
+
+    const handleUpdateConfirm = async (newCode, newDiscount) => {
+        try {
+            await axios({
+                url: `http://127.0.0.1:5000/api/coupons/${selectedCoupon._id}`,
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                data: {
+                    "code": newCode,
+                    "discount": newDiscount
+                }
+            })
+            setModalOpen(false)
+            setSelectedCoupon(null)
+            if (showFiltered) {
+                getFilteredCoupons()
+            } else {
+                getCoupons()
+            }
+        } catch (error) {
+            console.error("Error updating coupon:", error)
+        }
+    }
+
+    // DELETE - Delete coupon
+    const deleteCoupon = async (id) => {
+        const couponList = showFiltered ? filteredCoupons : coupons
+        const coupon = couponList.find(c => c._id === id)
+        setSelectedCoupon(coupon)
+        setModalType('delete')
+        setModalOpen(true)
+    }
+
+    const handleDeleteConfirm = async () => {
+        try {
+            await axios({
+                url: `http://127.0.0.1:5000/api/coupons/${selectedCoupon._id}`,
+                method: "DELETE"
+            })
+            setModalOpen(false)
+            setSelectedCoupon(null)
+            if (showFiltered) {
+                getFilteredCoupons()
+            } else {
+                getCoupons()
+            }
+        } catch (error) {
+            console.error("Error deleting coupon:", error)
+        }
+    }
 
     function saveProduct() {
         const newProduct = {
@@ -29,16 +151,8 @@ function Admin() {
         setProductPrice("")
     }
 
-    function saveCoupon() {
-        const newCoupon = {
-            code: couponCode, 
-            discount: couponDiscount
-        }
-        
-        setCoupons([...coupons, newCoupon])
-        setCouponCode("")
-        setCouponDiscount("")
-    }
+    // Determine which coupon list to display
+    const displayedCoupons = showFiltered ? filteredCoupons : coupons
 
     return (
         <div>
@@ -46,6 +160,17 @@ function Admin() {
                 <h1>Store Administration</h1>
                 <p className="subtitle">Manage your products and coupons</p>
             </div>
+
+            <CouponModal 
+                isOpen={modalOpen}
+                onClose={() => {
+                    setModalOpen(false)
+                    setSelectedCoupon(null)
+                }}
+                onConfirm={modalType === 'edit' ? handleUpdateConfirm : handleDeleteConfirm}
+                type={modalType}
+                coupon={selectedCoupon}
+            />
 
             <div className='admin-sections'>
                 <section>
@@ -133,17 +258,46 @@ function Admin() {
                             />
                         </div>
 
-                        <button onClick={saveCoupon}>Save Coupon</button>
+                        <button onClick={createCoupons}>Save Coupon</button>
                     </div>
 
-                    <h4>Coupons List:</h4>
-                    {coupons.length === 0 ? (
-                        <p className="empty-message">There's not coupons</p>
+                    <div className="coupon-filter-section">
+                        <h4>
+                            {showFiltered ? 'Coupons with Discount < 30%:' : 'Coupons List:'}
+                        </h4>
+                        <div className="filter-buttons">
+                            <button 
+                                className={!showFiltered ? 'filter-btn active' : 'filter-btn'}
+                                onClick={getCoupons}
+                            >
+                                Show All
+                            </button>
+                            <button 
+                                className={showFiltered ? 'filter-btn active' : 'filter-btn'}
+                                onClick={getFilteredCoupons}
+                            >
+                                Discount &lt; 30%
+                            </button>
+                        </div>
+                    </div>
+
+                    {displayedCoupons.length === 0 ? (
+                        <p className="empty-message">
+                            {showFiltered ? "No coupons with discount less than 30%" : "There's no coupons"}
+                        </p>
                     ) : (
-                        coupons.map((coupon, index) => (
-                            <p key={index} className="coupon-item">
-                                {coupon.code} - {coupon.discount}%
-                            </p>
+                        displayedCoupons.map((coupon, index) => (
+                            <div key={index} className="coupon-item">
+                                <span>{coupon.code} - {coupon.discount}%</span>
+                                <div className="button-group">
+                                    <button onClick={() => updateCoupon(coupon._id)}>
+                                        Edit
+                                    </button>
+                                    <button onClick={() => deleteCoupon(coupon._id)}>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
                         ))
                     )}
                 </section>
